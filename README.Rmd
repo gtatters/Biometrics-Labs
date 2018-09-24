@@ -7,4 +7,5 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## GitHub Documents
+## Biometrics Lab Tutorials (work in progress)
+
