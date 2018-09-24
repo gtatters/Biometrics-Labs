@@ -1,7 +1,8 @@
 .Rproj.user
+.Rprojs
 .Rhistory
 .RData
 .Ruserdata
 *.Rmd
-**/RMarkdownCode
-*/SPSS files
+/RMarkdownCode/
+/SPSS files/
