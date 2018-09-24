@@ -1,0 +1,39 @@
+---
+title: "Lab 9 - Multivariate Analysis - Principal Components Analysis"
+output: 
+html_document:
+    theme: readable
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Dropbox/Biometrics Labs/Lab 9 - Multivariate Analysis - PCA")
+```
+
+___
+
+## Lab Objectives:
+
+- Gain a brief introduction to a code based statistical software: R
+- Use R to code and run a PCA 
+- Practice running a PCA on a dataset
+- Learn to read the output and interpret the results
+
+___
+
+## Principal Components Analysis Essentials 
+
+___
+
+### The Basics
+
+Principal component analysis (PCA) allows us to summarize and to visualize the information in a data set containing individuals/observations described by multiple inter-correlated quantitative variables. Each variable could be considered as a different dimension. If you have more than 3 variables in your data set, it could be very difficult to visualize a multi-dimensional hyperspace.
+
+Principal component analysis is used to extract the important information from a multivariate data table and to express this information as a set of few new variables called principal components. These new variables correspond to a linear combination of the original variables.
+
+The information in a given data set, corresponds to the total variation it contains. The goal of PCA is to identify directions (or principal components) along which the variation in the data is maximal. In other words, PCA reduces the dimensionality of multivariate data to two or three principal components, that can be visualized graphically, with minimal loss of information. 
+
+Understanding the details of PCA requires knowledge of linear algebra. Here, we’ll explain only the basics with simple graphical representation of the data. In Plot 1A, the data are represented in the X-Y coordinate system. The dimension reduction is achieved by identifying the principal directions, called principal components, in which the data varies. PCA assumes that the directions with the largest variances are the most “important” or the “most principal”. In Plot 1A, the PC1 axis is the first principal direction along which the samples show the largest variation. The PC2 axis is the second most important direction and it is orthogonal to the PC1 axis. The dimensionality of our two-dimensional data can be reduced to a single dimension by projecting each sample onto the first principal component (Plot 1B).
+
+
