@@ -4,4 +4,4 @@
 .Ruserdata
 *.Rmd
 **/RMarkdownCode
-SPSS files
+*/SPSS files
