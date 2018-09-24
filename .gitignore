@@ -1,9 +1,9 @@
 .Rproj.user
-.Rproj
 .Rhistory
 .RData
 .Ruserdata
 *.Rmd
+BiometricsLab.Rproj
 .gitignore
 .dropbox
 Code/
