@@ -407,9 +407,9 @@ The bootstrap offers one approach.
 
 -   Step 1: State null and alternative hypotheses:
 
-    *H*<sub>0</sub> : *m**e**a**n* = 33.02
+    $0: mean = 33.02$
 
-    *H*<sub>*a*</sub> : *m**e**a**n* &lt; &gt;33.02
+    $a: mean &lt;&gt; 33.02$
 
 -   Step 2: Set the significance level. We’ll choose 5%.
 -   Step 3: Choose a test statistic. We wish to estimate the mean speed, and therefore we’ll use the sample average.
