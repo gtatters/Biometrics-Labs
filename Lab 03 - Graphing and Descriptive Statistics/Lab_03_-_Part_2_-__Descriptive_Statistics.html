@@ -149,21 +149,101 @@ $(document).ready(function () {
 </div>
 <div id="exercise-1-descriptive-statistics" class="section level1">
 <h1>Exercise 1: Descriptive statistics</h1>
-<p>Most descriptive statistics are calculated using the Analyze menu, followed by Descriptive Statistics, and the Descriptives, Frequencies, or Explore commands. When calculating descriptives for more complex designs, including more than one independent variable, you can also use the Compare Means/ Means or the Descriptive Statistics/ Crosstabs command which allow you to calculate descriptive statistics of subgroups.</p>
+<p>Since R is primarily a statistical computing language many descriptive statistics are available simply by coding. More complex approaches involving summarising large datasets can be achieved by installing certain packages.</p>
 <p>It is always important to take a moment to think about the type of data you are using and what descriptive statistics will be most useful given the type. For numerical data, you typically report measures of central tendency and measures of variability. It is often useful to observe the frequency distributions or histograms of continuous distributions to note if they are normal or skewed. For categorical data you typically report the frequency or proportion of each value.</p>
 <div id="descriptive-statistics" class="section level2">
 <h2>Descriptive Statistics:</h2>
 <p>Let’s begin by calculating descriptive statistics for some of the data in the Appendix D file.</p>
-<p>Open appendixd.csv</p>
-<pre class="r"><code>d&lt;-&quot;appendixd.csv&quot;</code></pre>
-<p>Ensure that you are viewing the data labels (e.g. male, female) rather than the value labels (e.g. 1, 2). If the values are visible rather than the labels, click the appropriate button to change this.</p>
-<p>In the Analyze menu, select Descriptive Statistics and then Descriptives.</p>
-<p>Select each of the numerical variables – ADD score, IQ score, Grade in 9th grade English, and GPA in 9th grade – and transfer them to the variables list by clicking the right arrow.</p>
-<p>Mean</p>
-<p>Std devation</p>
-<p>Variance</p>
-<p>SE Mean</p>
-<p>Click on the options button. Put check marks next to Mean, Std. deviation, Variance, and S.E. mean. Uncheck the rest. Note that you can change the display order of your table. If variable list is selected, the variables will be displayed in the order that you added them to the list in the previous window, which is OK for right now. Click Continue, and OK.</p>
+<p>Open appendixd.csv and examine the structure of the data:</p>
+<pre class="r"><code>d&lt;-read.csv(&quot;appendixd.csv&quot;)
+str(d)</code></pre>
+<pre><code>## 'data.frame':    88 obs. of  10 variables:
+##  $ ID     : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ addsc  : int  45 50 49 55 39 68 69 56 58 48 ...
+##  $ gender : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ repeat.: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 2 2 1 1 1 ...
+##  $ iq     : int  111 102 108 109 118 79 88 102 105 92 ...
+##  $ engl   : int  2 2 2 2 2 2 2 2 3 2 ...
+##  $ engg   : int  3 3 4 2 3 2 2 4 1 4 ...
+##  $ gpa    : num  2.6 2.75 4 2.25 3 1.67 2.25 3.4 1.33 3.5 ...
+##  $ socprob: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 2 1 1 1 ...
+##  $ dropout: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 2 2 1 1 1 ...</code></pre>
+</div>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>In R, a mean can be calculated on an isolated variable via the mean(VAR) command, where VAR is the name of the variable whose mean you wish to compute. Alternatively, a mean can be calculated for each of the variables in a dataset by using the mean(DATAVAR) command, where DATAVAR is the name of the variable containing the data. The code sample below demonstrates both uses of the mean function.</p>
+<p>Calculate the mean of a variable with mean(VAR)</p>
+<p>what is the mean Age in the sample? mean(Age) &gt; #calculate the mean of all variables in a dataset with mean(DATAVAR) &gt; #what is the mean of each variable in the dataset? &gt; mean(dataset)</p>
+</div>
+<div id="standard-deviation" class="section level2">
+<h2>Standard Deviation</h2>
+<p>Within R, standard deviations are calculated in the same way as means. The standard deviation of a single variable can be computed with the sd(VAR) command, where VAR is the name of the variable whose standard deviation you wish to retrieve. Similarly, a standard deviation can be calculated for each of the variables in a dataset by using the sd(DATAVAR) command, where DATAVAR is the name of the variable containing the data. The code sample below demonstrates both uses of the standard deviation function.</p>
+<blockquote>
+<h1 id="calculate-the-standard-deviation-of-a-variable-with-sdvar">calculate the standard deviation of a variable with sd(VAR)</h1>
+<h1 id="what-is-the-standard-deviation-of-age-in-the-sample">what is the standard deviation of Age in the sample?</h1>
+<p>sd(Age) [1] 19.45602 #calculate the standard deviation of all variables in a dataset with sd(DATAVAR) #what is the standard deviation of each variable in the dataset? sd(dataset) Age………….. Income 19.45602…. 32306.10175</p>
+</blockquote>
+</div>
+<div id="range" class="section level2">
+<h2>Range</h2>
+<div id="minimum-and-maximum" class="section level3">
+<h3>Minimum and Maximum</h3>
+<p>Keeping with the pattern, a minimum can be computed on a single variable using the min(VAR) command. The maximum, via max(VAR), operates identically. However, in contrast to the mean and standard deviation functions, min(DATAVAR) or max(DATAVAR) will retrieve the minimum or maximum value from the entire dataset, not from each individual variable. Therefore, it is recommended that minimums and maximums be calculated on individual variables, rather than entire datasets, in order to produce more useful information. The sample code below demonstrates the use of the min and max functions.</p>
+<blockquote>
+<h1 id="calculate-the-min-of-a-variable-with-minvar">calculate the min of a variable with min(VAR)</h1>
+<h1 id="what-is-the-minimum-age-found-in-the-sample">what is the minimum age found in the sample?</h1>
+<p>min(Age) [1] 5 #calculate the max of a variable with max(VAR) #what is the maximum age found in the sample? max(Age) [1] 70</p>
+</blockquote>
+</div>
+<div id="range-1" class="section level3">
+<h3>Range</h3>
+<p>The range of a particular variable, that is, its maximum and minimum, can be retrieved using the range(VAR) command. As with the min and max functions, using range(DATAVAR) is not very useful, since it considers the entire dataset, rather than each individual variable. Consequently, it is recommended that ranges also be computed on individual variables. This operation is demonstrated in the following code sample.</p>
+<blockquote>
+<h1 id="calculate-the-range-of-a-variable-with-rangevar">calculate the range of a variable with range(VAR)</h1>
+<h1 id="what-range-of-age-values-are-found-in-the-sample">what range of age values are found in the sample?</h1>
+<p>range(Age) [1] 5….70</p>
+</blockquote>
+</div>
+</div>
+<div id="percentiles" class="section level2">
+<h2>Percentiles</h2>
+<p>Values from Percentiles (Quantiles)</p>
+<p>Given a dataset and a desired percentile, a corresponding value can be found using the quantile(VAR, c(PROB1, PROB2,…)) command. Here, VAR refers to the variable name and PROB1, PROB2, etc., relate to probability values. The probabilities must be between 0 and 1, therefore making them equivalent to decimal versions of the desired percentiles (i.e. 50% = 0.5). The following example shows how this function can be used to find the data value that corresponds to a desired percentile.</p>
+<blockquote>
+<h1 id="calculate-desired-percentile-values-using-quantilevar-cprob1-prob2">calculate desired percentile values using quantile(VAR, c(PROB1, PROB2,…))</h1>
+<h1 id="what-are-the-25th-and-75th-percentiles-for-age-in-the-sample">what are the 25th and 75th percentiles for age in the sample?</h1>
+<p>quantile(Age, c(0.25, 0.75)) 25%……. 75% 17.75….. 44.25 Note that quantile(VAR) command can also be used. When probabilities are not specified, the function will default to computing the 0, 25, 50, 75, and 100 percentile values, as shown in the following example.</p>
+</blockquote>
+<blockquote>
+<h1 id="calculate-the-default-percentile-values-using-quantilevar">calculate the default percentile values using quantile(VAR)</h1>
+<h1 id="what-are-the-0-25-50-75-and-100-percentiles-for-age-in-the-sample">what are the 0, 25, 50, 75, and 100 percentiles for age in the sample?</h1>
+<p>quantile(Age) 0%…… 25%…… 50%…… 75%…… 100% 5.00… 17.75…… 30.00… 44.25….. 70.00</p>
+</blockquote>
+</div>
+<div id="percentiles-from-values-percentile-rank" class="section level2">
+<h2>Percentiles from Values (Percentile Rank)</h2>
+<p>In the opposite situation, where a percentile rank corresponding to a given value is needed, one has to devise a custom method. To begin, consider the steps involved in calculating a percentile rank.</p>
+<p>count the number of data points that are at or below the given value divide by the total number of data points</p>
+<p>multiply by 100 From the preceding steps, the formula for calculating a percentile rank can be derived: percentile rank = length(VAR[VAR &lt;= VAL]) / length(VAR) * 100, where VAR is the name of the variable and VAL is the given value. This formula makes use of the length function in two variations. The first, length(VAR[VAR &lt;= VAL]), counts the number of data points in a variable that are below the given value. Note that the “&lt;=” operator can be replaced with other combinations of the &lt;, &gt;, and = operators, supposing that the function were to be applied to different scenarios. The second, length(VAR), counts the total number of data points in the variable. Together, they accomplish steps one and two of the percentile rank computation process. The final step is to multiply the result of the division by 100 to transform the decimal value into a percentage. A sample percentile rank calculation is demonstrated below.</p>
+<blockquote>
+<h1 id="calculate-the-percentile-rank-for-a-given-value-using-the-custom-formula-lengthvarvar">calculate the percentile rank for a given value using the custom formula: length(VAR[VAR &lt;&gt;</h1>
+<h1 id="in-the-sample-an-age-of-45-is-at-what-percentile-rank">in the sample, an age of 45 is at what percentile rank?</h1>
+<p>length(Age[Age &lt;= 45]) / length(Age) * 100 [1] 75</p>
+</blockquote>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>A very useful multipurpose function in R is summary(X), where X can be one of any number of objects, including datasets, variables, and linear models, just to name a few. When used, the command provides summary data related to the individual object that was fed into it. Thus, the summary function has different outputs depending on what kind of object it takes as an argument. Besides being widely applicable, this method is valuable because it often provides exactly what is needed in terms of summary statistics. A couple examples of how summary(X) can be used are displayed in the following code sample. I encourage you to use the summary command often when exploring ways to analyze your data in R. This function will be revisited throughout the R Tutorial Series.</p>
+<blockquote>
+<h1 id="summarize-a-variable-with-summaryvar">summarize a variable with summary(VAR)</h1>
+<p>summary(Age) The output of the preceding summary is pictured below.</p>
+</blockquote>
+<blockquote>
+<h1 id="summarize-a-dataset-with-summarydatavar">summarize a dataset with summary(DATAVAR)</h1>
+<p>summary(dataset) The output of the preceding summary is pictured below.</p>
+</blockquote>
+<p>Complete Summary Statistics Analysis</p>
+<p>Calculate the mean, standard deviation, variance, and SE mean for ADD score, IQ score, Grade in 9th grade english, GPA in the 9th grade</p>
 <p>Double click the table so you can edit it. A formatting toolbar and “pivoting trays” window pops up. Note that the menu at the top of the output windows also changes. As was the case with graphs, SPSS has many options to edit statistics in tables as well. Let’s try some of them.</p>
 <p>Close the pivoting trays window. Under the pivot menu, select Transpose Rows and Columns. Note the change in your table. However, as this is not the conventional way to display statistics, repeat this again to return to the original orientation.</p>
 <p>Select Format, Table Looks. Scroll through the various options for changing the overall look of the table. Many of these contain too much distracting formatting. Select Academic, and click OK.</p>
