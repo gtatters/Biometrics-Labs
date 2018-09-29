@@ -7,5 +7,12 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Biometrics Lab Tutorials (work in progress)
+## Biometrics Lab Tutorials
+
+An introduction to biometrics in R for Brock University students.  These tutorials are designed, eventually, to accompany BIOL 3P96.  This site is currently a work in progress and not yet ready for deployment.
+
+Click the clone button and download this site as a zip file, uncompress and store in a location you have read/write access.  All tutorials involve accessing data files and setting your working directory to where each tutorial is save locally.  
+
+
+
 
