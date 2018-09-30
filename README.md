@@ -4,7 +4,7 @@ Biometrics Lab Tutorials
 Biometrics Lab Tutorials
 ------------------------
 
-An introduction to biometrics in R for Brock University students. These tutorials are designed, eventually, to accompany BIOL 3P96. This site is currently a work in progress and not yet ready for deployment.
+An introduction to R and biometrics for Brock University students. These tutorials are designed (eventually) to accompany BIOL 3P96. This site is currently a work in progress and not yet ready for deployment, although you are welcome to test out examples and give feedback.
 
 Although it is possible to run through the code on your own, the tutorials will accompany a course website (Sakai) and, thus questions and assessments will be performed elsewhere.
 
